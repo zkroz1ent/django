@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Liste des Matériels</h2>
+<ul>
+    {% for materiel in materiels %}
+    <li>{{ materiel.nom }} - <a href="{% url 'pret_ecole_python_mange:detail_materiel' materiel.pk %}">Détails</a></li>
+    {% empty %}
+    <li>Aucun matériel trouvé.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

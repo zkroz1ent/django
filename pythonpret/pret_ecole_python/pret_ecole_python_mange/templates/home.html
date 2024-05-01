@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>Welcome to the Gestion de Prêt de Matériel!</div>
+
+<!-- Liens vers les fonctionnalités de l'application -->
+<ul>
+    <li><a href="{% url 'pret_ecole_python_mange:liste_materiels' %}">Liste des Matériels</a></li>
+    <li><a href="{% url 'pret_ecole_python_mange:creer_materiel' %}">Ajouter un nouveau Matériel</a></li>
+    <li><a href="{% url 'pret_ecole_python_mange:creer_enseignant' %}">Ajouter un nouvel Enseignant</a></li>
+    <!-- D'autres liens peuvent être ajoutés ici -->
+</ul>
+
+{% endblock %}

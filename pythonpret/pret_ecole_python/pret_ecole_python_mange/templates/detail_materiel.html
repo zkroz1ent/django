@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Détail du Matériel: {{ materiel.nom }}</h2>
+<p>Propriétaire: {{ materiel.proprietaire }}</p>
+<p>Salle de stockage: {{ materiel.salle_stockage }}</p>
+<p>État: {{ materiel.etat }}</p>
+
+<h3>Historique des Prêts:</h3>
+<ul>
+    {% for pret in prets %}
+    <li>Emprunté par: {{ pret.emprunte_par }} le {{ pret.date_emprunt }}</li>
+    {% empty %}
+    <li>Aucun prêt enregistré.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'pret_ecole_python_mange:liste_materiels' %}">Retour à la liste</a>
+{% endblock %}

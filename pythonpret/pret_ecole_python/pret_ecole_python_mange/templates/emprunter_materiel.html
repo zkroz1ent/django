@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Emprunter Matériel</h2>
+<form method="post" action="{% url 'pret_ecole_python_mange:emprunt_materiel' materiel.pk %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Emprunter</button>
+</form>
+{% endblock %}
