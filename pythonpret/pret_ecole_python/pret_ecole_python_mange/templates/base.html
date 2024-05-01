@@ -2,27 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Gestion de Prêt de Matériel{% endblock %}</title>
+    <!-- Intégration de Bootstrap pour un design responsive -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     {% block stylesheet %}{% endblock %}
 </head>
 <body>
     <header>
-        <h1>Gestion de Prêt de Matériel Multimédia</h1>
+        <!-- Barre de navigation Bootstrap -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'pret_ecole_python_mange:home' %}">Gestion de Prêt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterner la navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pret_ecole_python_mange:liste_materiels' %}">Matériels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'pret_ecole_python_mange:creer_materiel' %}">Ajouter Matériel</a>
+                    </li>
+                    <!-- Plus d'éléments de navigation peuvent être ajoutés ici -->
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <nav>
-        <!-- Nav items can go here -->
-    </nav>
-
-    <main>
+    <main class="container mt-4">
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer>
-        <!-- Footer content can go here -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">&copy; 2024 Gestion de Prêt de Matériel Multimédia.</span>
+        </div>
     </footer>
 
     {% block script %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

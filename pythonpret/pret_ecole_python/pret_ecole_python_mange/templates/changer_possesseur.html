@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Changer le possesseur du matériel: {{ materiel.nom }}</h2>
+<form method="post" action="{% url 'pret_ecole_python_mange:changer_possesseur' materiel.pk %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Changer Possesseur</button>
+</form>
+{% endblock %}

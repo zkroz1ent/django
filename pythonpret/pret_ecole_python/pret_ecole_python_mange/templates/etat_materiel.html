@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>État du matériel: {{ materiel.nom }}</h2>
+<div>
+    <p>Acheté par: {{ materiel.achete_par }}</p>
+    <p>État: {{ materiel.etat }}</p>
+    <p>Salle de stockage: {{ materiel.salle_stockage }}</p>
+    <p>Possesseur actuel: {{ possesseur_actuel }}</p>
+    <h3>Historique des prêts</h3>
+    <ul>
+        {% for pret in prets %}
+        <li>{{ pret.emprunte_par.prenom }} {{ pret.emprunte_par.nom }} du {{ pret.date_emprunt }} au {{ pret.date_retour }}</li>
+        {% empty %}
+        <li>Aucun historique de prêt pour ce matériel.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
